@@ -6,6 +6,7 @@ import os
 import re
 import warnings
 from collections import OrderedDict
+import sqlite3
 
 
 #  _____________________
@@ -14,7 +15,7 @@ from collections import OrderedDict
 #     (\__/) || 
 #     (•ㅅ•) || 
 #     / 　 づ
-LABELS = ['state', ] # The labels should be a list of strings
+LABELS = ['state', 'district', 'mandal', 'city/village', 'pin', 'locality', 'street', 'landmark', 'number' ] # The labels should be a list of strings
 
 #***************** OPTIONAL CONFIG ***************************************************
 PARENT_LABEL  = 'TokenSequence'               # the XML tag for each labeled string
