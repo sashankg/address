@@ -74,12 +74,16 @@ def tokenize(raw_string):
         except:
             raw_string = str(raw_string)
     
-    re_tokens = # re.compile( [REGEX HERE], re.VERBOSE | re.UNICODE)
-    tokens = re_tokens.findall(raw_string)
+    #re_tokens = re.compile( r'[^,]+', re.VERBOSE | re.UNICODE)
+    #tokens = re_tokens.findall(raw_string)
 
-    if not tokens :
-        return []
-    return tokens
+    #if not tokens :
+    #    return []
+
+    separated = raw_string.split(", ")
+    separated = filter(lambda s: len(s) > 1, separated)
+
+    return separated
 
 
 #  _______________________
@@ -134,6 +138,17 @@ def tokenFeatures(token) :
     return features
 
 # define any other methods for features. this is an example to get the casing of a token
+
+con = sqlite3.Connection('names.sqlite')
+cur = con.cursor()
+def heirarchy(token):
+    table_names = ['States', 'Districts', 'Mandals', 'Cities', 'Villages']
+    file_names = ['states_uts', 'districts', 'mandals', 'cities', 'villages']
+    for i in range(5):
+        cur.execute('SELECT * FROM ' + table_names[i] + ' WHERE name =' + token + 'LIMIT 1')
+        if cur.fetchone():
+            return table_names[i]
+
 def casing(token) :
     if token.isupper() :
         return 'upper'
