@@ -204,7 +204,7 @@ def tokenFeatures(token) :
     h = heirarchy(token)
 
     features = {   # DEFINE FEATURES HERE. some examples:
-            'len': len(token)
+            'len': len(token),
             'heirarchy': h,
             'soundslike': soundslike(token) if not h else h,
             'street': token.split(' ')[-1].lower() in STREET_NAMES
