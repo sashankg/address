@@ -15,7 +15,7 @@ from metaphone import doublemetaphone
 #     (\__/) || 
 #     (•ㅅ•) || 
 #     / 　 づ
-LABELS = ['state', 'district', 'mandal', 'city/village', 'pin', 'locality', 'street', 'landmark', 'number' ] # The labels should be a list of strings
+LABELS = ['state', 'district', 'mandal', 'city', 'village', 'pin', 'locality', 'street', 'landmark', 'number' ] # The labels should be a list of strings
 
 #***************** OPTIONAL CONFIG ***************************************************
 PARENT_LABEL  = 'TokenSequence'               # the XML tag for each labeled string
@@ -219,7 +219,7 @@ def tokenFeatures(token) :
 con = sqlite3.Connection('names.sqlite')
 cur = con.cursor()
 def heirarchy(token):
-    table_names = ['States', 'Cities', 'Districts', 'Mandals', 'Villages']
+    table_names = ['States', 'Cities', 'Mandals', 'Districts', 'Villages']
     for i in range(5):
         cur.execute('SELECT * FROM ' + table_names[i] + ' WHERE name ="' + token.upper() + '" LIMIT 1')
         if cur.fetchone():
@@ -228,7 +228,7 @@ def heirarchy(token):
     return False
 
 def soundslike(token):
-    table_names = ['States', 'Cities', 'Districts', 'Mandals', 'Villages']
+    table_names = ['States', 'Cities', 'Mandals', 'Districts', 'Villages']
     metaphones = doublemetaphone(token)
     for i in range(5):
         m1 = cur.execute('SELECT * FROM ' + table_names[i] + ' WHERE metaphone1 ="' + metaphones[0] + '" LIMIT 1').fetchone()
