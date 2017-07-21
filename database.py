@@ -10,7 +10,7 @@ class Row:
 	def next(self):
 		name = self.csv_reader.next()[0]
 		metaphones = doublemetaphone(name)	
-		return [name, metaphones[0], metaphones[1]]
+		return [name.upper(), metaphones[0], metaphones[1]]
 
 con = sqlite3.Connection('names.sqlite')
 cur = con.cursor()
@@ -18,6 +18,7 @@ cur = con.cursor()
 table_names = ['Villages', 'Cities', 'States', 'Districts', 'Mandals']
 file_names = ['villages', 'cities', 'states_uts', 'districts', 'mandals']
 for i in range(5):
+    cur.execute('DROP TABLE IF EXISTS ' + table_names[i])
     cur.execute('CREATE TABLE ' + table_names[i] + ' (name text, metaphone1 text, metaphone2 text);')
 
     csv_file = open('resources/' + file_names[i] + '.csv')
