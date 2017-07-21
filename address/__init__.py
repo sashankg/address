@@ -207,9 +207,9 @@ def tokenFeatures(token) :
             'len': len(token),
             'heirarchy': h,
             'soundslike': soundslike(token) if not h else h,
-            'street': token.split(' ')[-1].lower() in STREET_NAMES
-            'isdigit': token.isdigit()
-            'containsdigits': bool(re.compile('\d').search(token))
+            'street': token.split(' ')[-1].lower() in STREET_NAMES,
+            'isdigit': token.isdigit(),
+            'containsdigits': bool(re.compile('\d').search(token)),
             }
 
     return features
