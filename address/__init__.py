@@ -32,6 +32,11 @@ except IOError :
     TAGGER = None
     warnings.warn('You must train the model (parserator train [traindata] [modulename]) to create the %s file before you can use the parse and tag methods' %MODEL_FILE)
 
+def label(raw_string):
+    parsed = parse(raw_string)
+    probability = TAGGER.probability(map(lambda (token, label): label, parsed))
+    return (parsed, probability)
+
 def parse(raw_string):
     if not TAGGER:
         raise IOError('\nMISSING MODEL FILE: %s\nYou must train the model before you can use the parse and tag methods\nTo train the model annd create the model file, run:\nparserator train [traindata] [modulename]' %MODEL_FILE)
@@ -79,10 +84,14 @@ def tokenize(raw_string):
 
     #if not tokens :
     #    return []
-
-    separated = raw_string.split(", ")
+    m = re.search(r'(\w*\d\w*)', raw_string.split(',')[0])
+    added_comma = raw_string
+    if m:
+        added_comma = raw_string[:m.start() + 1] + ', ' + raw_string[m.start() + 1:]
+    single_spaces = re.sub(' +',' ', added_comma)
+    separated = single_spaces.split(", ")
     separated = filter(lambda s: len(s) > 1, separated)
-
+            
     return separated
 
 

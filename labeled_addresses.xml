@@ -1,3 +1,20 @@
 <Collection>
   <TokenSequence><number>D NO 9-105-2</number> <locality>BUGGAKALVA</locality> <district>CHITTOOR</district> <state>ANDHRA PRADESH</state> <pin>517001</pin></TokenSequence>
+  <TokenSequence><number>HNO 2 142 2</number> <village>OKRA</village> <district>NALGONDA</district> <state>TELANGANA</state> <pin>508001</pin></TokenSequence>
+  <TokenSequence><number>H NO 17-579</number> <street>NEERUGANTI STREET</street> <city>ANANTAPUR</city> <district>ANANTAPUR</district> <state>ANDHRA PRADESH</state> <pin>515001</pin></TokenSequence>
+  <TokenSequence><number>H NO 3 89</number> <village>RAMPUR THANDA</village> <district>RANGAREDDY</district> <state>ANDHRA PRADESH</state> <pin>501078</pin></TokenSequence>
+  <TokenSequence><number>1 133</number> <mandal>KOTHAPETA</mandal> <district>KHAMMAM</district> <state>ANDHRA PRADESH</state> <pin>507001</pin></TokenSequence>
+  <TokenSequence><mandal>MANOPAD</mandal> <locality>MANAVAPAD</locality> <district>MAHABUBNAGAR</district> <state>TELANGANA</state> <pin>509128</pin></TokenSequence>
+  <TokenSequence><number>4-234/1</number> <locality>NAYINENI PALLE PETNIKOTA</locality> <city>TQ KURNOOL</city> <district>KURNOOL</district> <state>ANDHRA PRADESH</state> <pin>518001</pin></TokenSequence>
+  <TokenSequence><number>HNO-36--96-188</number> <landmark>RAMJI ESTET LABOUR QUATERS</landmark> <locality>KAPPARADA KANCHARAPAELM</locality> <district>VISAKHAPATNAM</district> <state>ANDHRA PRADESH</state> <pin>530008</pin></TokenSequence>
+  <TokenSequence><number>26-19-65/2</number> <locality>AT AGRAHARAM</locality> <district>GUNTUR</district> <state>ANDHRA PRADESH</state> <pin>522001</pin></TokenSequence>
+", IBRAHIUMPATNAM, RANGAREDDY, ANDHRA PRADESH, 501078"
+<TokenSequence>
+	<number>H NO 7-6</number>
+	<village>DANDUMALLARAM</village>
+	<mandal>IBRAHIUMPATNAM</mandal>
+	<district>RANGAREDDY</district>
+	<state>ANDHRA PRADESH</state>
+	<pin>501078</pin>
+</TokenSequence>
 </Collection>
