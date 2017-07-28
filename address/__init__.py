@@ -84,10 +84,19 @@ def tokenize(raw_string):
 
     #if not tokens :
     #    return []
-    m = re.search(r'(\w*\d\w*)', raw_string.split(',')[0])
+    first_token = raw_string.split(',')[0]
+    last_number = len(first_token) - 1
+    while(last_number >= 0):
+        if first_token[last_number].isdigit():
+            break
+        else:
+            last_number = last_number - 1
     added_comma = raw_string
-    if m:
-        added_comma = raw_string[:m.start() + 1] + ', ' + raw_string[m.start() + 1:]
+    if last_number >= 0 and last_number < len(first_token) - 1:
+        m = last_number
+        while(first_token[m] != ' '):
+            m = m + 1
+        added_comma = raw_string[:m] + ', ' + raw_string[m:]
     single_spaces = re.sub(' +',' ', added_comma)
     separated = single_spaces.split(", ")
     separated = filter(lambda s: len(s) > 1, separated)
