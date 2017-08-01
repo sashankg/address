@@ -94,7 +94,7 @@ def tokenize(raw_string):
     added_comma = raw_string
     if last_number >= 0 and last_number < len(first_token) - 1:
         m = last_number
-        while(first_token[m] != ' '):
+        while(m < len(first_token) and first_token[m] != ' '):
             m = m + 1
         added_comma = raw_string[:m] + ', ' + raw_string[m:]
     single_spaces = re.sub(' +',' ', added_comma)
